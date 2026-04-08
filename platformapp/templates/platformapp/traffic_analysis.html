@@ -1,0 +1,13 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<h2>Tor traffiginiň analizi</h2>
+<div class="card">
+<form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button class="btn">Ýükle we analiz et</button></form>
+</div>
+<div class="card">
+<h3>Soňky trafik ýazgylary</h3>
+<table><tr><th>Çeşme IP</th><th>Maksat IP</th><th>Protokol</th><th>Baýt</th><th>Anomaliýa</th></tr>
+{% for l in logs %}<tr><td>{{ l.source_ip }}</td><td>{{ l.destination_ip }}</td><td>{{ l.protocol }}</td><td>{{ l.bytes_transferred }}</td><td>{% if l.is_anomaly %}Hawa{% else %}Ýok{% endif %}</td></tr>{% endfor %}
+</table>
+</div>
+{% endblock %}

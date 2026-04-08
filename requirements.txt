@@ -1,0 +1,6 @@
+Django>=5.0,<6.0
+channels>=4.0
+scikit-learn>=1.4
+numpy>=1.26
+PyJWT>=2.8
+psycopg2-binary>=2.9

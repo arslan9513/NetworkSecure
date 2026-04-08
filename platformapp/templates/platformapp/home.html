@@ -1,0 +1,14 @@
+{% extends 'platformapp/base.html' %}
+{% block title %}Baş sahypa{% endblock %}
+{% block content %}
+<section class="grid cols-3">
+  <article class="card"><h3>Ulgam syny</h3><p>Bu platforma AI arkaly şübheli tor hereketini ýüze çykarýar.</p></article>
+  <article class="card"><h3>Howpsuzlyk statistikasy</h3><p>Jemi howplar: <strong>{{ threat_count }}</strong></p><p>Jemi trafik ýazgylary: <strong>{{ log_count }}</strong></p></article>
+  <article class="card"><h3>Soňky howplar</h3>{% for t in threats %}<div>• {{ t.title }} ({{ t.get_attack_type_display }})</div>{% empty %}<div>Howp tapylmady</div>{% endfor %}</article>
+</section>
+<section class="hero">
+    <h1>AI esasly Tor Gorag Platformasy</h1>
+    <p>DDoS, phishing, malware ýaly hüjümleri real wagtda gözegçilik ediň.</p>
+    <a href="/hasaba-almak/" class="btn">Hasap aç</a>
+</section>
+{% endblock %}

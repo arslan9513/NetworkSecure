@@ -1,0 +1,4 @@
+source_ip,destination_ip,protocol,bytes_transferred
+192.168.0.12,10.0.0.2,tcp,3200
+192.168.0.14,10.0.0.2,udp,72000
+192.168.0.33,10.0.0.8,tcp,1800

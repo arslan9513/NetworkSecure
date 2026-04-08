@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tk" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AI Gorag Platformasy{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'platformapp/css/style.css' %}">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="{% static 'platformapp/js/app.js' %}"></script>
+</head>
+<body>
+<header class="topbar">
+    <div class="logo">🛡️ AI Tor Goragy</div>
+    <nav>
+        <a href="/">Baş sahypa</a>
+        <a href="/dolandyrys-paneli/">Dolandyryş paneli</a>
+        <a href="/trafik-analizi/">Tor traffiginiň analizi</a>
+        <a href="/ai-model/">AI model dolandyryşy</a>
+        <a href="/duyduryslar/">Duýduryşlar</a>
+        <a href="/hasabatlar/">Hasabatlar</a>
+        <a href="/sazlamalar/">Sazlamalar</a>
+    </nav>
+    <div class="actions">
+        <button id="themeToggle">Tema</button>
+        {% if user.is_authenticated %}
+            <a class="btn" href="/cykys/">Çykyş</a>
+        {% else %}
+            <a class="btn" href="/giris/">Giriş</a>
+        {% endif %}
+    </div>
+</header>
+<main>
+    {% if messages %}
+    <section class="messages">
+        {% for message in messages %}<div class="msg">{{ message }}</div>{% endfor %}
+    </section>
+    {% endif %}
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

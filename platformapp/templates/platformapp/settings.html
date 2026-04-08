@@ -1,0 +1,10 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<h2>Sazlamalar</h2>
+<form method="post" class="card form">{% csrf_token %}
+<p><label>API açary</label><input type="text" name="api_key" placeholder="sk-demo"></p>
+<p><label>Model threshold (%)</label><input type="number" name="threshold" value="80"></p>
+<p><label>Email duýduryş</label><input type="email" name="email" placeholder="admin@example.com"></p>
+<button class="btn">Sazlamalary ýatda sakla</button>
+</form>
+{% endblock %}

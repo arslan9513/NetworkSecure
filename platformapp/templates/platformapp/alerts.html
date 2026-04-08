@@ -1,0 +1,12 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<h2>Duýduryşlar</h2>
+<div class="card">
+<form method="get"><label>Hüjüm görnüşi:</label>
+<select name="type"><option value="">Ählisi</option><option value="ddos">DDoS</option><option value="phishing">Phishing</option><option value="malware">Malware</option><option value="other">Beýleki</option></select>
+<button class="btn">Süz</button></form>
+</div>
+<div class="card">
+{% for t in threats %}<div><strong>{{ t.title }}</strong> - {{ t.get_attack_type_display }} - dereje {{ t.severity }}</div>{% empty %}Howp ýok{% endfor %}
+</div>
+{% endblock %}
