@@ -1,12 +1,22 @@
 {% extends 'platformapp/base.html' %}
 {% block content %}
-<h2>Dolandyryş paneli</h2>
-<div class="grid cols-2">
+<div class="section-title">
+  <h2>Dolandyryş paneli</h2>
+  <span class="badge">Canly monitoring</span>
+</div>
+
+<div class="grid cols-3">
+  <article class="card stat"><span class="label">Soňky loglar</span><span class="value">{{ recent_logs|length }}</span></article>
+  <article class="card stat"><span class="label">Howp derejesi topary</span><span class="value">{{ threat_levels|length }}</span></article>
+  <article class="card stat"><span class="label">Soňky duýduryşlar</span><span class="value">{{ alerts|length }}</span></article>
+</div>
+
+<div class="grid cols-2" style="margin-top:1rem;">
   <article class="card"><h3>Trafik işjeňligi</h3><canvas id="trafficChart"></canvas></article>
   <article class="card"><h3>Howp derejeleri</h3><canvas id="threatChart" data-levels='{{ threat_levels|safe }}'></canvas></article>
 </div>
-<div class="grid cols-2">
-  <article class="card"><h3>Soňky ýazgylar</h3>{% for l in recent_logs %}<div>{{ l.source_ip }} → {{ l.destination_ip }} | {{ l.protocol }} | {{ l.bytes_transferred }}</div>{% empty %}Maglumat ýok{% endfor %}</article>
+<div class="grid cols-2" style="margin-top:1rem;">
+  <article class="card"><h3>Soňky ýazgylar</h3>{% for l in recent_logs %}<div>{{ l.source_ip }} → {{ l.destination_ip }} | {{ l.protocol }} | {{ l.bytes_transferred }}</div>{% empty %}<span class="muted">Maglumat ýok</span>{% endfor %}</article>
   <article class="card"><h3>Canly duýduryşlar</h3><div id="liveAlerts">{% for a in alerts %}<div>• {{ a.message }}</div>{% endfor %}</div></article>
 </div>
 {% endblock %}

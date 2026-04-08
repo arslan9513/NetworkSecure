@@ -11,7 +11,10 @@
 </head>
 <body>
 <header class="topbar">
-    <div class="logo">🛡️ AI Tor Goragy</div>
+    <div class="logo-wrap">
+        <div class="logo-dot"></div>
+        <div class="logo">AI Tor Goragy</div>
+    </div>
     <nav>
         <a href="/">Baş sahypa</a>
         <a href="/dolandyrys-paneli/">Dolandyryş paneli</a>
@@ -22,7 +25,7 @@
         <a href="/sazlamalar/">Sazlamalar</a>
     </nav>
     <div class="actions">
-        <button id="themeToggle">Tema</button>
+        <button id="themeToggle">🌗 Tema</button>
         {% if user.is_authenticated %}
             <a class="btn" href="/cykys/">Çykyş</a>
         {% else %}
@@ -37,6 +40,7 @@
     </section>
     {% endif %}
     {% block content %}{% endblock %}
+    <div class="footer">© 2026 AI Tor Gorag Platformasy</div>
 </main>
 </body>
 </html>
