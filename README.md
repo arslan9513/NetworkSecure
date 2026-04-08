@@ -33,6 +33,22 @@ python manage.py seed_demo
 python manage.py runserver
 ```
 
+
+## Windows (OSGeo4W) ýalňyşlygyny düzetmek
+
+Eger şeýle ýalňyşlyk alsaňyz: `ModuleNotFoundError: No module named encodings` ýa-da `C:\OSGeo4W\bin\python3.exe`, onda OSGeo-nyň Python-y bilen işe girýärsiňiz.
+
+### Çalt usul (awtomat skript)
+
+```powershell
+cd <taslama-papkasy>
+PowerShell -ExecutionPolicy Bypass -File .\scripts\bootstrap_windows.ps1
+```
+
+### El bilen usul
+
+`docs/WINDOWS_TROUBLESHOOTING.md` faýlyndaky ädimleri ýerine ýetiriň.
+
 ## PostgreSQL ulanmak
 
 ```bash
