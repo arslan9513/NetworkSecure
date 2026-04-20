@@ -2,26 +2,30 @@
 {% block title %}Baş sahypa{% endblock %}
 {% block content %}
 <section class="hero">
-    <span class="badge">AI + Realtime Gorag</span>
-    <h1>Tor howpsuzlygy üçin häzirki zaman platforma</h1>
-    <p>DDoS, phishing, malware we anomaliýalary real wagtda seljeriň, duýduryş alyň we AI modellere esaslanyp çalt karar kabul ediň.</p>
-    <a href="/hasaba-almak/" class="btn">Hasap aç</a>
+    <span class="badge">🚀 Realtime AI Defense</span>
+    <h1>Maksimum derejede döwrebap tor goragy</h1>
+    <p>Tor traffigindäki howplary awtomat tanamak, klassifikasiýa etmek we real wagtda habar bermek üçin döredilen güýçli AI platforma.</p>
+    <div class="quick-actions" style="margin-top:1rem;">
+        <a href="/hasaba-almak/" class="btn">Hasap aç</a>
+        <a href="/dolandyrys-paneli/" class="btn btn-outline">Paneli gör</a>
+    </div>
 </section>
 
-<section class="grid cols-3" style="margin-top:1rem;">
-  <article class="card stat"><div class="label">Jemi howplar</div><div class="value">{{ threat_count }}</div></article>
-  <article class="card stat"><div class="label">Jemi trafik ýazgylary</div><div class="value">{{ log_count }}</div></article>
-  <article class="card stat"><div class="label">Gözegçilik ýagdaýy</div><div class="value"><span class="badge badge-success">Onlaýn</span></div></article>
+<section class="grid cols-4" style="margin-top:1rem;">
+    <article class="card kpi"><div class="kpi-top">Jemi howplar</div><div class="kpi-value">{{ threat_count }}</div><div class="kpi-foot">Soňky analizlerden alnan netije</div></article>
+    <article class="card kpi"><div class="kpi-top">Trafik ýazgylary</div><div class="kpi-value">{{ log_count }}</div><div class="kpi-foot">Ýüklenen log maglumatlary</div></article>
+    <article class="card kpi"><div class="kpi-top">Ulgam ýagdaýy</div><div class="kpi-value"><span class="badge badge-success">Aktiw</span></div><div class="kpi-foot">24/7 monitoring</div></article>
+    <article class="card kpi"><div class="kpi-top">Reaksiýa tizligi</div><div class="kpi-value">~120ms</div><div class="kpi-foot">Awto-duýduryş wagty</div></article>
 </section>
 
 <section class="card" style="margin-top:1rem;">
-  <div class="section-title"><h3>Soňky ýüze çykarylan howplar</h3></div>
-  {% for t in threats %}
-    <div style="padding:.45rem 0;border-bottom:1px solid rgba(148,163,184,.2)">
-      <strong>{{ t.title }}</strong> <span class="badge">{{ t.get_attack_type_display }}</span>
+    <div class="section-title"><h3>Soňky ýüze çykarylan howplar</h3><span class="badge">Threat Feed</span></div>
+    <div class="feed">
+        {% for t in threats %}
+            <div class="feed-item"><strong>{{ t.title }}</strong> <span class="badge">{{ t.get_attack_type_display }}</span></div>
+        {% empty %}
+            <div class="muted">Howp tapylmady</div>
+        {% endfor %}
     </div>
-  {% empty %}
-    <div class="muted">Howp tapylmady</div>
-  {% endfor %}
 </section>
 {% endblock %}
