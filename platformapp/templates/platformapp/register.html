@@ -1,0 +1,5 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<h2>Hasaba almak</h2>
+<form method="post" class="card form">{% csrf_token %}{{ form.as_p }}<button class="btn">Hasap döret</button></form>
+{% endblock %}

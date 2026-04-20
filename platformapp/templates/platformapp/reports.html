@@ -1,0 +1,8 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<h2>Hasabatlar</h2>
+<div class="card"><a class="btn" href="?format=csv">CSV eksport</a></div>
+<div class="card"><h3>Hüjüm taryhy</h3>
+{% for t in threats %}<div>{{ t.detected_at }} — {{ t.title }} — {{ t.get_attack_type_display }}</div>{% empty %}<div>Maglumat ýok</div>{% endfor %}
+</div>
+{% endblock %}

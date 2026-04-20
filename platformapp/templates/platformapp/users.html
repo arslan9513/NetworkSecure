@@ -1,0 +1,7 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<h2>Ulanyjy dolandyryşy</h2>
+<div class="card"><div class="table-wrap"><table><tr><th>ID</th><th>Ulanyjy</th><th>Email</th><th>Admin</th><th>Hereket</th></tr>
+{% for u in users %}<tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.is_staff }}</td><td><a href="/ulanyjylar/{{ u.id }}/uytget/">Üýtget</a></td></tr>{% endfor %}
+</table></div></div>
+{% endblock %}

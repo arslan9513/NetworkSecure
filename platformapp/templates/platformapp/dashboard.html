@@ -1,0 +1,29 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<div class="section-title">
+  <h2>Dolandyryş paneli</h2>
+  <div class="quick-actions">
+    <span class="badge">Canly monitoring</span>
+    <a class="btn btn-outline" href="/trafik-analizi/">Analiz başlat</a>
+  </div>
+</div>
+
+<div class="grid cols-4" style="margin-top:1rem;">
+  <article class="card kpi"><div class="kpi-top">Soňky loglar</div><div class="kpi-value">{{ recent_logs|length }}</div><div class="kpi-foot">Soňky sessiýa ýazgylary</div></article>
+  <article class="card kpi"><div class="kpi-top">Howp toparlary</div><div class="kpi-value">{{ threat_levels|length }}</div><div class="kpi-foot">Severity bölünişi</div></article>
+  <article class="card kpi"><div class="kpi-top">Soňky duýduryş</div><div class="kpi-value">{{ alerts|length }}</div><div class="kpi-foot">Realtime habarlar</div></article>
+  <article class="card kpi"><div class="kpi-top">Model ynamy</div><div class="kpi-value">91%</div><div class="progress"><span style="width:91%"></span></div></article>
+</div>
+
+<div class="grid cols-2" style="margin-top:1rem;">
+  <article class="card"><h3>Trafik işjeňligi</h3><canvas id="trafficChart"></canvas></article>
+  <article class="card"><h3>Howp derejeleri</h3><canvas id="threatChart" data-levels='{{ threat_levels|safe }}'></canvas></article>
+</div>
+
+<div class="grid cols-2" style="margin-top:1rem;">
+  <article class="card"><h3>Soňky ýazgylar</h3>
+    <div class="feed">{% for l in recent_logs %}<div class="feed-item">{{ l.source_ip }} → {{ l.destination_ip }} · {{ l.protocol }} · {{ l.bytes_transferred }}</div>{% empty %}<span class="muted">Maglumat ýok</span>{% endfor %}</div>
+  </article>
+  <article class="card"><h3>Canly duýduryşlar</h3><div id="liveAlerts" class="feed">{% for a in alerts %}<div class="feed-item">⚠ {{ a.message }}</div>{% endfor %}</div></article>
+</div>
+{% endblock %}

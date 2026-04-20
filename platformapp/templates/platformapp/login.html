@@ -1,0 +1,9 @@
+{% extends 'platformapp/base.html' %}
+{% block content %}
+<h2>Giriş</h2>
+<form method="post" class="card form">{% csrf_token %}
+<p><label>Ulanyjy ady</label><input type="text" name="username" required></p>
+<p><label>Açar söz</label><input type="password" name="password" required></p>
+<button class="btn">Giriş et</button>
+</form>
+{% endblock %}
